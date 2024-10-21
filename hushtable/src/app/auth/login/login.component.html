@@ -1,6 +1,7 @@
 <mat-toolbar color="warn">
 </mat-toolbar>
 
+
 <div class="main">
     <img width="150" src="/logo.png" alt="logo"> 
     <h1>Welcome Back!</h1>
@@ -14,6 +15,7 @@
           />
          
         </mat-form-field>
+        <div class="pass_div">
             <mat-form-field appearance="outline" >
                 <mat-label>Password</mat-label>
                 <input matInput [type]="hide() ? 'password' : 'text'" required />
@@ -27,21 +29,9 @@
                   <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
-            <mat-form-field appearance="outline" >
-                <mat-label>Confirm Password</mat-label>
-                <input matInput [type]="hide() ? 'password' : 'text'" required />
-                <button
-                  mat-icon-button
-                  matSuffix
-                  (click)="clickEvent($event)"
-                  [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide()"
-                >
-                  <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
+        </div>
     </div>
-    <button class="login-btn" mat-flat-button color="warn">Create Account</button>
+    <button class="login-btn" mat-flat-button color="warn">Login</button>
     <p>
       Don't have an account? 
       <strong style="cursor: pointer;"  routerLink="/register">Create Account</strong>
