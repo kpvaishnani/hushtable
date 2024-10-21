@@ -1,1 +1,40 @@
-<p>register works!</p>
+<mat-toolbar color="warn">
+</mat-toolbar>
+
+
+<div class="main">
+    <img width="150" src="/logo.png" alt="logo"> 
+    <h1>Welcome Back!</h1>
+    <div class="form-div">
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            required
+          />
+         
+        </mat-form-field>
+        <div class="pass_div">
+            <mat-form-field appearance="outline" >
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide() ? 'password' : 'text'" required />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="clickEvent($event)"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide()"
+                >
+                  <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+          <span class="forgot_pass">Forgot Password?</span>
+        </div>
+    </div>
+    <button class="login-btn" mat-flat-button color="warn">Login</button>
+    <p>
+      Don't have an account? 
+      <strong style="cursor: pointer;"  routerLink="/register">Create Account</strong>
+    </p>
+    </div>

@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+// Define color palettes
+$myapp-theme-primary: mat.m2-define-palette(mat.$m2-red-palette, A400, A100, A700); // Red as primary
+$myapp-theme-accent: mat.m2-define-palette(mat.$m2-yellow-palette, A200, A100, A400); // Yellow as secondary
+$myapp-theme-warn: mat.m2-define-palette(mat.$m2-red-palette); // Warn remains red
+
+// Define the light theme with custom color roles
+$myapp-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $myapp-theme-primary, // Use red for primary color
+    accent: $myapp-theme-accent,   // Use yellow for accent color
+    warn: $myapp-theme-warn,       // Keep warn as red
+  )
+));
+
+// Apply the theme to all components
+@include mat.all-component-themes($myapp-theme);
