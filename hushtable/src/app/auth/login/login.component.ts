@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material.module';
 
@@ -21,9 +21,11 @@ export class LoginComponent {
   password: string = '';
   hide = signal(true);
 
+  constructor( private router:Router){}
+
 
   async login() {
-   
+   this.router.navigate(['/home'])
   }
   
   

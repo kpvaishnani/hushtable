@@ -32,7 +32,7 @@
           <span style="cursor: pointer;" class="forgot_pass" routerLink="/forgot-password">Forgot Password?</span>
         </div>
     </div>
-    <button class="login-btn" mat-flat-button color="warn">Login</button>
+    <button class="login-btn" mat-flat-button color="warn" (click)="login()">Login</button>
     <p>
       Don't have an account? 
       <strong style="cursor: pointer;"  routerLink="/register">Create Account</strong>
