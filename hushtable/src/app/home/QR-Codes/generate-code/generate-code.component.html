@@ -1,0 +1,13 @@
+
+<h2 mat-dialog-title>Add New QR Code</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Table Number</mat-label>
+    <input type="number" matInput />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="this.dialogRef.close();">No Thanks</button>
+  <button color="warn"  mat-button  cdkFocusInitial>Generate</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,60 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>QR Codes</span>
+  <span class="example-spacer"></span>
+  <button color="warn" mat-raised-button>
+    <mat-icon>qr_code</mat-icon> Download all
+  </button>
+</mat-toolbar>
+
+<div class="main">
+    <mat-card appearance="outlined">
+        <mat-card-content>
+            <mat-table [dataSource]="dataSource" >
+                <ng-container matColumnDef="QId">
+                  <mat-header-cell *matHeaderCellDef> QId </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.QId }} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="QRCode">
+                  <mat-header-cell *matHeaderCellDef> QRCode </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.QRCode }} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="TableNo">
+                  <mat-header-cell *matHeaderCellDef> TableNo. </mat-header-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.TableNo }} </mat-cell>
+                </ng-container>
+            
+                <ng-container matColumnDef="action">
+                  <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    <mat-icon matTooltip="link">link</mat-icon>
+                    <mat-icon style="margin-left: 20px" matTooltip="download"
+                      >download</mat-icon
+                    >
+                  </mat-cell>
+                </ng-container>
+            
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+
+              <button (click)="openDialog()" class="add-btn pointer_cursor" color="warn" mat-raised-button>Add</button>
+              <div>
+                  <p>Valid time for QR Code is set to Not set</p>
+                  <p>You can change this duration from setting</p>
+              </div>
+        </mat-card-content>
+      </mat-card>
+      
+  
+</div>
+
+

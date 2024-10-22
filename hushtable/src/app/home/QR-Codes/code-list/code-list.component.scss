@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  mat-card{
+    border-radius: 10px;
+   
+  }
+  mat-card-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .mat-column-name {
+    height: 100px;
+  }
+  .main{
+    margin: 20px;
+  }
+  .add-btn{
+    width: 200px;
+    padding: 25px;
+    font-size: large;
+    margin-top: 20px;
+  }
