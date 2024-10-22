@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material.module';
 
@@ -6,6 +6,7 @@ import { MaterialModule } from '../../material.module';
   selector: 'app-dashboard',
   standalone: true,
   imports: [RouterModule,MaterialModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

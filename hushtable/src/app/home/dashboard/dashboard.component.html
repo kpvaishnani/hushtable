@@ -1,22 +1,113 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer class="sidenav" mode="side" opened>
-   <div>
-        <img src="/logo.png" alt="" width="200">
-    <div class="menu">
-        <ul>
-            <li><mat-icon>dashboard</mat-icon>Dashboard</li>
-            <li><mat-icon>qr_code</mat-icon>QR Codes</li>
-            <li><mat-icon>groups</mat-icon>Staff</li>
-            <li><mat-icon>table_restaurant</mat-icon>Tables</li>
-            <li><mat-icon>menu_book</mat-icon>Menu</li>
-            <li><mat-icon>dashboard</mat-icon>Customers</li>
-            <li><mat-icon>account_circle</mat-icon>My Account</li>
-            <li><mat-icon>notifications</mat-icon>Notifications</li>
-            <li class="logout"><mat-icon>logout</mat-icon>Logout</li>
-            
-        </ul>
-    </div>
-   </div>
-  </mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
-</mat-drawer-container>
+<mat-toolbar>
+    <button   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Dashboard</span>
+  </mat-toolbar>
+  
+
+  <div class="main">
+
+      <div class="dash-rat-cards">
+    
+          <mat-card appearance="outlined">
+            <div>
+                <button color="warn" mat-fab aria-label="Example icon button with a menu icon">
+                    <mat-icon>star_rate</mat-icon>
+                  </button>
+            </div>
+            <div>
+                <span>Overall</span>
+              <h2>0</h2>
+            </div>
+          </mat-card>
+    
+          <mat-card appearance="outlined">
+            <div>
+                <button color="warn" mat-fab aria-label="Example icon button with a menu icon">
+                    <mat-icon>group</mat-icon>
+                  </button>
+            </div>
+            <div>
+                <span>Staff</span>
+              <h2>0</h2>
+            </div>
+          </mat-card>
+    
+          <mat-card appearance="outlined">
+            <div>
+                <button color="warn" mat-fab aria-label="Example icon button with a menu icon">
+                    <mat-icon>lunch_dining</mat-icon>
+                  </button>
+            </div>
+            <div>
+                <span>Food</span>
+              <h2>0</h2>
+            </div>
+          </mat-card>
+    
+          <mat-card appearance="outlined">
+            <div>
+                <button color="warn" mat-fab aria-label="Example icon button with a menu icon">
+                    <mat-icon>music_note</mat-icon>
+                  </button>
+            </div>
+            <div>
+                <span>Ambiance</span>
+              <h2>0</h2>
+            </div>
+          </mat-card>
+    
+          <mat-card appearance="outlined">
+            <div>
+                <button color="warn" mat-fab aria-label="Example icon button with a menu icon">
+                    <mat-icon>chair</mat-icon>
+                  </button>
+            </div>
+            <div>
+                <span>Comfort</span>
+              <h2>0</h2>
+            </div>
+          </mat-card>
+    
+          
+      </div>
+      
+      <div >
+          <mat-card class="graph-card" appearance="outlined">
+            <mat-card-content class="flex">
+                <mat-card-header>
+                    <mat-card-title>Overall Performance</mat-card-title>
+                  </mat-card-header>
+                  <div class="flex">
+                    <button color="warn" mat-flat-button>Hourly Today</button>
+                    <button color="warn" mat-flat-button>Last Week</button>
+                    <button color="warn" mat-flat-button>Month to date</button>
+                    <button color="warn" mat-flat-button>Year to date</button>
+                    <button color="warn" mat-flat-button>Select date</button>
+
+                  </div>
+            </mat-card-content>
+          </mat-card>
+      </div>
+
+      <mat-card appearance="outlined" class="user-card">
+        <mat-card-header>
+          <mat-card-title>Anonymous User</mat-card-title>
+          <mat-card-subtitle>Review : service</mat-card-subtitle>
+          <mat-card-subtitle>Table No : 1 </mat-card-subtitle>
+          <mat-card-subtitle>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+        </mat-card-subtitle>
+          
+        </mat-card-header>
+        <mat-card-actions align="end">
+            <span>12 Oct,2024 12:24 AM</span>
+        </mat-card-actions>
+      </mat-card>
+  </div>
+  
