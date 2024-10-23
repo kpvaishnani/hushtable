@@ -10,6 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
-    MatDialogClose
+    MatDialogClose,
+    MatSelectModule
   ]
 })
 export class MaterialModule {}

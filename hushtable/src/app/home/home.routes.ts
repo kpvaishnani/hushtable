@@ -4,6 +4,7 @@ import { HomeComponent } from "./home/home.component";
 import { CodeListComponent } from "./QR-Codes/code-list/code-list.component";
 import { StaffListComponent } from "./staff/staff-list/staff-list.component";
 import { TablesComponent } from "./tables/tables.component";
+import { MenuItemsListComponent } from "./menu/menu-items-list/menu-items-list.component";
 
 
 export const routes : Routes = [
@@ -26,6 +27,10 @@ export const routes : Routes = [
             {
                 path:'tables',
                 component:TablesComponent
+            },
+            {
+                path:'menu',
+                component:MenuItemsListComponent
             }
         ]
     },

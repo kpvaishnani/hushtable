@@ -1,1 +1,39 @@
-<p>add-item works!</p>
+
+<h2 mat-dialog-title>Add New Staff</h2>
+<mat-dialog-content>
+    <div class="photo-container">
+        <img 
+          [src]="photoPreview || 'profile photo.jpg'" 
+          alt="Staff Photo" 
+          class="photo-preview"
+        />
+        <button mat-flat-button color="warn" (click)="fileInput.click()">Change Photo</button>
+        <input 
+          type="file" 
+          #fileInput 
+          (change)="onFileSelected($event)" 
+          accept="image/*" 
+          hidden 
+        />
+      </div>
+  <mat-form-field>
+    <mat-label>Dish Name</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Select Category</mat-label>
+    <mat-select [disabled]="disableSelect.value">
+      <mat-option value="option1">Appetizers</mat-option>
+      <mat-option value="option2">Entrees</mat-option>
+      <mat-option value="option3">Sides</mat-option>
+      <mat-option value="option4">Desserts</mat-option>
+      <mat-option value="option5">Beverages</mat-option>
+      <mat-option value="option6">Other</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="this.dialogRef.close();">Cancel</button>
+  <button color="warn"  mat-button  cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+
