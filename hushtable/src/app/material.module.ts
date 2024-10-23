@@ -12,6 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -32,12 +33,13 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatTableModule,
     MatTooltipModule,
     MatDialogModule,
-      MatDialogTitle,
+    MatDialogTitle,
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule {}

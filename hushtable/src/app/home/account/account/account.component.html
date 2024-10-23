@@ -1,1 +1,68 @@
-<p>account works!</p>
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Account</span>
+</mat-toolbar>
+
+<div class="main">
+  <mat-toolbar>
+    <mat-toolbar-row routerLink="/home/setting">
+      <span>Settings</span>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example user verified icon"
+        >chevron_right</mat-icon
+      >
+    </mat-toolbar-row>
+
+    <mat-toolbar-row routerLink="/home/notification-setting">
+      <span>Notifications</span>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example user verified icon"
+        >chevron_right</mat-icon
+      >
+    </mat-toolbar-row>
+
+    <mat-toolbar-row routerLink="/home/subscription">
+      <span>My Subscription</span>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example delete icon"
+        >chevron_right</mat-icon
+      >
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <span>Delete Account</span>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example delete icon"
+        >chevron_right</mat-icon
+      >
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+      <span>Help</span>
+      <span class="example-spacer"></span>
+      <mat-icon
+        class="example-icon"
+        aria-hidden="false"
+        aria-label="Example delete icon"
+        >chevron_right</mat-icon
+      >
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

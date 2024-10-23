@@ -7,6 +7,10 @@ import { TablesComponent } from "./tables/tables.component";
 import { MenuItemsListComponent } from "./menu/menu-items-list/menu-items-list.component";
 import { CustomersComponent } from "./customers/customers.component";
 import { NotificationsComponent } from "./notifications/notifications.component";
+import { AccountComponent } from "./account/account/account.component";
+import { MySubscriptionComponent } from "./my-subscription/my-subscription.component";
+import { NotificationSettingComponent } from "./notification-setting/notification-setting.component";
+import { SettingComponent } from "./setting/setting.component";
 
 
 export const routes : Routes = [
@@ -41,7 +45,23 @@ export const routes : Routes = [
             {
                 path:'notifications',
                 component:NotificationsComponent
-            }
+            },
+            {
+                path:'account',
+              component:AccountComponent
+              },
+              {
+                path:'setting',
+                component:SettingComponent
+              },
+              {
+                path:'subscription',
+                component:MySubscriptionComponent
+              },
+              {
+                path:'notification-setting',
+                component:NotificationSettingComponent
+              }
         ]
     },
    
