@@ -1,1 +1,54 @@
-<p>staff-list works!</p>
+<mat-toolbar>
+    <button   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Staff Overview</span>
+  </mat-toolbar>
+
+  <div class="main">
+    <mat-card appearance="outlined">
+        <mat-card-content>
+            <mat-form-field appearance="outline">
+                <mat-label>Search Staff</mat-label>
+                <input type="search" matInput placeholder="Placeholder">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+         <table mat-table [dataSource]="dataSource" matSort>
+            
+           <!-- ID Column -->
+           <ng-container matColumnDef="Staff Name">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Staff Name </th>
+             <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+           </ng-container>
+       
+           <!-- Progress Column -->
+           <ng-container matColumnDef=" Total Review">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Review </th>
+             <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>
+           </ng-container>
+       
+           <!-- Name Column -->
+           <ng-container matColumnDef="All Over Review">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> All Over Review </th>
+             <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+           </ng-container>
+       
+           <!-- Fruit Column -->
+           <ng-container matColumnDef="Weekly Review ">
+             <th mat-header-cell *matHeaderCellDef mat-sort-header> Weekly Review </th>
+             <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+           </ng-container>
+       
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+       
+           <!-- Row shown when there is no matching data. -->
+           <tr class="mat-row" *matNoDataRow>
+             <td class="mat-cell" colspan="4">No data matching the filter </td>
+           </tr>
+         </table>
+       
+        </mat-card-content>
+    </mat-card>
+    <button (click)="openDialog()" class="add-btn pointer_cursor" color="warn" mat-raised-button>Add</button>
+  </div>

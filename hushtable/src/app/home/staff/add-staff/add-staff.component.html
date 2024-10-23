@@ -1,1 +1,32 @@
-<p>add-staff works!</p>
+
+<h2 mat-dialog-title>Add New Staff</h2>
+<mat-dialog-content>
+    <div class="photo-container">
+        <img 
+          [src]="photoPreview || 'profile photo.jpg'" 
+          alt="Staff Photo" 
+          class="photo-preview"
+        />
+        <button mat-flat-button color="warn" (click)="fileInput.click()">Change Photo</button>
+        <input 
+          type="file" 
+          #fileInput 
+          (change)="onFileSelected($event)" 
+          accept="image/*" 
+          hidden 
+        />
+      </div>
+  <mat-form-field>
+    <mat-label>Staff Name</mat-label>
+    <input type="text" matInput />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Staff Email</mat-label>
+    <input type="email" matInput />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="this.dialogRef.close();">Cancel</button>
+  <button color="warn"  mat-button  cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+
