@@ -1,33 +1,160 @@
 <mat-toolbar>
-    <button   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>My Account</span>
-  </mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Account</span>
+</mat-toolbar>
 
-  <mat-toolbar color="warn">
-    <span>Setting</span>
-  </mat-toolbar>
+<mat-toolbar color="warn">
+  <span>Setting</span>
+</mat-toolbar>
 
+<div class="main">
+  <mat-card appearance="outlined">
+    <mat-card-content>
+        <div class="photo-container">
+            <img 
+              [src]="photoPreview || 'profile photo.jpg'" 
+              alt="Staff Photo" 
+              class="photo-preview"
+            />
+            <button mat-flat-button color="warn" (click)="fileInput.click()">Change Logo</button>
+            <input 
+              type="file" 
+              #fileInput 
+              (change)="onFileSelected($event)" 
+              accept="image/*" 
+              hidden 
+            />
+          </div>
+      <mat-form-field>
+        <mat-label>Restaurant Name</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Google Maps Link</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Review Incentive</mat-label>
+        <input matInput />
+      </mat-form-field>
 
-  <div class="main">
-      <mat-card appearance="outlined">
-        <mat-card-content>
-            <mat-form-field>
-                <mat-label>Restaurant Name</mat-label>
-                <input matInput>
-              </mat-form-field>
-            <mat-form-field>
-                <mat-label>Google Maps Link</mat-label>
-                <input matInput>
-              </mat-form-field>
-            <mat-form-field>
-                <mat-label>Review Incentive</mat-label>
-                <input matInput>
-              </mat-form-field>
-              <p><mat-slide-toggle labelPosition="before">Google Review</mat-slide-toggle></p>
+      <div
+        style="margin: 10px"
+        style="
+          background-color: #f5f5f5;
+          padding: 10px;
+          border-bottom: 2px solid #c6c6c6;
+        "
+      >
+        <mat-slide-toggle labelPosition="before"
+          >Google Review</mat-slide-toggle
+        >
+      </div>
 
-        </mat-card-content>
-      </mat-card>
-  </div>
-  
+      <div
+        style="margin: 10px"
+        style="
+          background-color: #f5f5f5;
+          padding: 10px;
+          border-bottom: 2px solid #c6c6c6;
+          margin-top: 20px;
+        "
+      >
+        <div class="example-label-container">
+          <label id="example-name-label" class="example-name-label"
+            >Google Review Threshold</label
+          >
+          <label class="example-value-label">{{ slider.value }}</label>
+        </div>
+        <mat-slider
+          class="example-margin"
+          [max]="5"
+          [min]="0"
+          [step]="0.5"
+          [discrete]="true"
+          [showTickMarks]="true"
+        >
+          <input matSliderThumb [(ngModel)]="review" #slider />
+        </mat-slider>
+      </div>
+
+      <div
+        style="margin: 10px"
+        style="
+          background-color: #f5f5f5;
+          padding: 10px;
+          border-bottom: 2px solid #c6c6c6;
+          margin-top: 20px;
+        "
+      >
+        <div class="example-label-container">
+          <label
+            id="example-name-label"
+            class="example-name-label"
+            style="font-weight: 500"
+            >QR Time Limit</label
+          >
+        </div>
+        <div>
+          <label class="example-value-label">{{ slider2.value }}</label>
+          <mat-slider
+            class="example-margin"
+            [max]="23"
+            [min]="0"
+            [step]="1"
+            [discrete]="true"
+            [showTickMarks]="true"
+            style="margin-left: 20px; margin-right: 20px"
+          >
+            <input matSliderThumb [(ngModel)]="hour" #slider2 />
+          </mat-slider>
+          <label class="example-value-label">23 Hours</label>
+        </div>
+        <div>
+          <label class="example-value-label">{{ slider3.value }}</label>
+          <mat-slider
+            class="example-margin"
+            [max]="59"
+            [min]="0"
+            [step]="2"
+            [discrete]="true"
+            [showTickMarks]="true"
+            style="margin-left: 20px; margin-right: 20px"
+          >
+            <input matSliderThumb [(ngModel)]="min" #slider3 />
+          </mat-slider>
+          <label class="example-value-label">59 Min</label>
+        </div>
+      </div>
+
+      <div class="valid-time">
+        <p>
+          Valid time for each review is :
+          <span> {{ hour }} hour</span>
+          <span> {{ min }} min</span>
+        </p>
+        <p>
+          <i>if the time is not set,customers can leave a review at any time</i>
+        </p>
+      </div>
+
+      <div class="valid-time">
+        <mat-form-field>
+          <mat-label>Choose App Color</mat-label>
+          <input matInput type="color" />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button  class="add-btn pointer_cursor" color="warn" mat-raised-button>
+          Save
+        </button>
+    </mat-card-actions>
+</mat-card>
+</div>

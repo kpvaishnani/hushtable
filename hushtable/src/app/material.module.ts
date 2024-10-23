@@ -13,6 +13,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatDialogClose,
     MatSelectModule,
     MatTabsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSliderModule,
+    MatFormFieldModule,
+    FormsModule
   ]
 })
 export class MaterialModule {}
