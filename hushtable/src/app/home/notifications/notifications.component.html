@@ -1,1 +1,22 @@
-<p>notifications works!</p>
+<mat-toolbar>
+    <button   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Notifications</span>
+  </mat-toolbar>
+
+  <div class="main">
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+                <mat-icon color="warn" >notifications</mat-icon>
+            </div>
+
+          <mat-card-title>Someone rated service with 5 star at table number 1</mat-card-title>
+          <mat-card-subtitle style="margin-top: 5px;">Good Food</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions align="end">
+            <span>12 Oct,2024 12:24 AM</span>
+        </mat-card-actions>
+      </mat-card>
+  </div>

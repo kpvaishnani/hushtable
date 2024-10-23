@@ -5,6 +5,8 @@ import { CodeListComponent } from "./QR-Codes/code-list/code-list.component";
 import { StaffListComponent } from "./staff/staff-list/staff-list.component";
 import { TablesComponent } from "./tables/tables.component";
 import { MenuItemsListComponent } from "./menu/menu-items-list/menu-items-list.component";
+import { CustomersComponent } from "./customers/customers.component";
+import { NotificationsComponent } from "./notifications/notifications.component";
 
 
 export const routes : Routes = [
@@ -31,6 +33,14 @@ export const routes : Routes = [
             {
                 path:'menu',
                 component:MenuItemsListComponent
+            },
+            {
+                path:'customers',
+                component:CustomersComponent
+            },
+            {
+                path:'notifications',
+                component:NotificationsComponent
             }
         ]
     },
