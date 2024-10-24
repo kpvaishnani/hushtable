@@ -1,1 +1,33 @@
-<p>my-subscription works!</p>
+<mat-toolbar>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>My Account</span>
+  </mat-toolbar>
+  <mat-toolbar color="warn">
+    <span>Subscription</span>
+  </mat-toolbar>
+
+  <div class="main">
+    <mat-card>
+        <mat-card-content>
+            <mat-list role="list">
+                <mat-list-item role="listitem"> <strong>Subscription  : </strong> <span>Active</span></mat-list-item>
+                <mat-list-item role="listitem"><strong>Renews : </strong> <span>Jul 18,2024</span></mat-list-item>
+                <mat-list-item role="listitem"><strong>Cost : </strong><span>$20/month</span></mat-list-item>
+              </mat-list>
+              
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button  class="add-btn pointer_cursor" color="secondary" mat-raised-button>
+              Change Payment Method
+            </button>
+            <button style="margin-left: 10px;"  class="add-btn pointer_cursor" color="warn" mat-raised-button>
+             Cancel Subscription
+            </button>
+        </mat-card-actions>
+    </mat-card>
+  </div>
