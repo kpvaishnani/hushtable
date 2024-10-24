@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material.module';
 import { AuthService } from '../../services/auth.service';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +18,7 @@ export class RegisterComponent {
 
   email = '';
   password = '';
+  confirmPassword = ''
 
   hide = signal(true);
   clickEvent(event: MouseEvent) {
@@ -24,9 +26,13 @@ export class RegisterComponent {
     event.stopPropagation();
   }
 
-  constructor(private authService:AuthService){}
+  constructor(private authService:AuthService , private snackbarService:SnackbarService){}
 
-  register(){
-    this.authService.signUp(this.email , this.password)
+  register() {
+    if (this.password === this.confirmPassword) {
+      this.authService.signUp(this.email, this.password);
+    } else {
+      this.snackbarService.showMessage('Passwords do not match!' , 'error');
+    }
   }
 }
