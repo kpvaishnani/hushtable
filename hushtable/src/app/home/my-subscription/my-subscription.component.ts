@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material.module';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-my-subscription',
@@ -9,5 +10,5 @@ import { MaterialModule } from '../../material.module';
   styleUrl: './my-subscription.component.scss'
 })
 export class MySubscriptionComponent {
-
+  constructor(public location:Location){}
 }

@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material.module';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-setting',
@@ -17,6 +18,7 @@ export class SettingComponent {
   selectedFile: File | null = null;
   photoPreview: string | ArrayBuffer | null = null;
 
+  constructor(public location:Location){}
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;

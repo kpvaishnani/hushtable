@@ -3,6 +3,7 @@ import { MaterialModule } from '../../material.module';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { Location } from '@angular/common';
 
 
 export interface Fruit {
@@ -23,7 +24,7 @@ export class NotificationSettingComponent {
   pushRating = 0;
   emailRating = 0;
  
-
+  constructor(public location:Location){}
   readonly addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   readonly fruits = signal<Fruit[]>([{name: 'test@gmail.com'}, {name: 'test3@gmail.com'},]);

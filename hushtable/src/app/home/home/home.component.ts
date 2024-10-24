@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material.module';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,4 +11,5 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
 
+  constructor(public router:Router){}
 }
