@@ -1,0 +1,33 @@
+.main{
+    margin: 20px;
+}
+mat-card{
+    padding: 20px;
+}
+.setting{
+    margin-top: 30px;
+}
+.title{
+    font-weight: 500;
+    font-size: large;
+}
+.description{
+    color: gray;
+    margin-top: 5px;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+mat-divider{
+    margin-bottom: 10px;
+   
+}.example-chip-list {
+    width: 100%;
+  }
+  .add-btn{
+    width: 200px;
+    padding: 25px;
+    font-size: large;
+    margin-top: 20px;
+  }

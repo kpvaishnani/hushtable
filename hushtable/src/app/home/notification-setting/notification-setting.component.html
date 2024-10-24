@@ -1,1 +1,118 @@
-<p>notification-setting works!</p>
+<mat-toolbar>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My Account</span>
+</mat-toolbar>
+<mat-toolbar color="warn">
+  <span>Notification Setting</span>
+</mat-toolbar>
+
+<div class="main">
+  <mat-card>
+    <span class="header"
+      >Choose what notifications you want to receive below and at which rating
+      threshold they will be sent</span
+    >
+
+   <div class="setting">
+
+    <div class="push_notification flex">
+        <div>
+            <span class="title">Push Notifications</span>
+            <p class="description">Receive Push notifications from revues as they come in</p>
+        </div>
+        <mat-slide-toggle
+        color="warn"
+        class="example-margin"
+        [checked]="checked"
+       >
+    </mat-slide-toggle>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="push_rating flex">
+        <div>
+            <span class="title">Push Rating Threshold</span>
+            <p class="description">You will only receive notifications below this threshold</p>
+        </div>
+        <mat-slider
+        class="example-margin"
+      
+        [max]="5"
+        [min]="0"
+        [step]="0.5"
+        [discrete]="true"
+        [showTickMarks]="true">
+      <input matSliderThumb [(ngModel)]="pushRating" #slider>
+    </mat-slider>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="email_notification flex">
+        <div>
+            <span class="title">Email Notifications</span>
+            <p class="description">Receive Push notifications from revues as they come in</p>
+        </div>
+        <mat-slide-toggle
+        color="warn"
+        class="example-margin"
+        [checked]="checked"
+       >
+    </mat-slide-toggle>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="email_rating flex">
+        <div>
+            <span class="title">Email Rating Threshold</span>
+           
+        </div>
+        <mat-slider
+        class="example-margin"
+      
+        [max]="5"
+        [min]="0"
+        [step]="0.5"
+        [discrete]="true"
+        [showTickMarks]="true">
+      <input matSliderThumb [(ngModel)]="emailRating" #slider>
+    </mat-slider>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-form-field class="example-chip-list">
+        <mat-label>Emails</mat-label>
+        <mat-chip-grid #chipGrid aria-label="Enter fruits">
+          @for (fruit of fruits(); track fruit) {
+            <mat-chip-row
+              (removed)="remove(fruit)"
+              [editable]="true"
+              (edited)="edit(fruit, $event)"
+              [aria-description]="'press enter to edit ' + fruit.name"
+            >
+              {{fruit.name}}
+              <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip-row>
+          }
+          <input
+            placeholder="New email..."
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="addOnBlur"
+            (matChipInputTokenEnd)="add($event)"
+          />
+        </mat-chip-grid>
+      </mat-form-field>
+      
+   </div>
+   <mat-card-actions align="end">
+    <button  class="add-btn pointer_cursor" color="warn" mat-raised-button>
+      Save Changes
+    </button>
+</mat-card-actions>
+  </mat-card>
+</div>

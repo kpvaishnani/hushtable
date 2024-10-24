@@ -16,6 +16,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import {MatChipEditedEvent, MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     MatSlideToggleModule,
     MatSliderModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatChipsModule
   ]
 })
 export class MaterialModule {}
