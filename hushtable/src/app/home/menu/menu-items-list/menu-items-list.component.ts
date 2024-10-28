@@ -13,7 +13,7 @@ import { CommonService } from '../../../services/common.service';
 })
 export class MenuItemsListComponent {
 
-  displayedColumns: string[] = ['Dish', ' Total Review', 'All Over Review', 'Weekly Review '];
+  displayedColumns: string[] = ['Dish', ' Total Review', 'All Over Review', 'Weekly Review', 'actions'];
   dataSource:any= [];
   collection = 'menu';
 
@@ -48,4 +48,14 @@ export class MenuItemsListComponent {
       console.error(error)
     }
   }
+
+  async deleteById(id:string){
+    try{
+      await this.commonService.delete(this.collection ,id )
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
+  
 }

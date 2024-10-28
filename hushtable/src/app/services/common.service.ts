@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { addDoc, collection, Firestore, getDocs } from '@angular/fire/firestore';
+import { addDoc, collection, deleteDoc, doc, Firestore, getDocs, updateDoc } from '@angular/fire/firestore';
 
 
 @Injectable({
@@ -20,5 +20,15 @@ export class CommonService {
   async create<T>(collectionName: string, data:any): Promise<void> {
     const collectionRef = collection(this.firestore, collectionName);
     await addDoc(collectionRef, data);
+  }
+
+  async update<T>(collectionName: string, id: string, data:any): Promise<void> {
+    const docRef = doc(this.firestore, collectionName, id);
+    await updateDoc(docRef, data);
+  }
+
+  async delete(collectionName: string, id: string): Promise<void> {
+    const docRef = doc(this.firestore, collectionName, id);
+    await deleteDoc(docRef);
   }
 }
