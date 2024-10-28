@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { MaterialModule } from '../../../material.module';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CommonService } from '../../../services/common.service';
 import { SnackbarService } from '../../../services/snackbar.service';
 
@@ -12,7 +12,7 @@ import { SnackbarService } from '../../../services/snackbar.service';
   styleUrl: './add-item.component.scss'
 })
 export class AddItemComponent {
-  readonly dialogRef = inject(MatDialogRef<AddItemComponent>);
+ 
   selectedFile: File | null = null;
   photoPreview: string | ArrayBuffer | null = null;
   newItem = {image:this.photoPreview ,  name: '', category: '' };
@@ -20,10 +20,19 @@ export class AddItemComponent {
 
   constructor(
     private commonService : CommonService,
-    private snackbar : SnackbarService
+    private snackbar : SnackbarService,
+    public dialogRef: MatDialogRef<AddItemComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ){}
 
  
+  ngOnInit(){
+  
+    if (this.data) {
+      this.newItem = { ...this.data.menuData }; 
+      this.photoPreview = this.newItem.image; 
+    }
+  }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -42,15 +51,18 @@ export class AddItemComponent {
     }
   }
 
-  async addNewItem(){
-    try{
-      console.log('Payload' , this.newItem)
-     const result =  await this.commonService.create(this.collection,this.newItem);
-     this.snackbar.showMessage('Menu Item Added Successfully', 'success')
-      this.dialogRef.close(result);
-    }
-    catch(error){
-      console.error(error)
+  async submit() {
+    try {
+      if (this.data?.menuData) { 
+        await this.commonService.update(this.collection, this.data.menuData.id, this.newItem);
+        this.snackbar.showMessage('Item updated successfully', 'success');
+      } else { 
+        const result = await this.commonService.create(this.collection, this.newItem);
+        this.snackbar.showMessage('New item added successfully', 'success');
+      }
+      this.dialogRef.close(true);  
+    } catch (error) {
+      console.error('Error saving item:', error);
     }
   }
 }

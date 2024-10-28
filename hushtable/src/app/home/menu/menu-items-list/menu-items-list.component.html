@@ -40,8 +40,8 @@
            <ng-container matColumnDef="actions">
              <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
              <td mat-cell *matCellDef="let row"> 
-              <mat-icon>edit</mat-icon>
-              <mat-icon color="warn" (click)="deleteById(row.id)">delete</mat-icon>
+              <mat-icon (click)="openDialog(row)">edit</mat-icon>
+              <mat-icon color="warn" (click)="openDeleteDialog(row.id)">delete</mat-icon>
                </td>
            </ng-container>
        

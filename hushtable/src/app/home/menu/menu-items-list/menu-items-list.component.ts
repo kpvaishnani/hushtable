@@ -3,6 +3,7 @@ import { MaterialModule } from '../../../material.module';
 import { AddItemComponent } from '../add-item/add-item.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonService } from '../../../services/common.service';
+import { DeleteDialogComponent } from '../../../common/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-menu-items-list',
@@ -26,15 +27,11 @@ export class MenuItemsListComponent {
     this.getMenuList()
   }
 
- async openDialog(){
-    const dialogRef:any = this.dialog.open(AddItemComponent);
-
+ async openDialog(menuData?:any){
+    const dialogRef:any = this.dialog.open(AddItemComponent , {data : {menuData}});
     dialogRef.afterClosed().subscribe((result: any) => {
-     
         this.dataSource.push(result);
         this.getMenuList()
-      
-      
     });
   }
 
@@ -49,13 +46,25 @@ export class MenuItemsListComponent {
     }
   }
 
-  async deleteById(id:string){
-    try{
-      await this.commonService.delete(this.collection ,id )
-    }
-    catch(error){
-      console.error(error)
+  
+
+  async openDeleteDialog(id: string) {
+    try {
+      const dialogRef = this.dialog.open(DeleteDialogComponent, { data: { id } });
+  
+      dialogRef.afterClosed().subscribe((result: boolean) => {
+        if (result) { 
+          this.commonService.delete(this.collection, id).then(() => {
+            this.getMenuList(); 
+          }).catch(error => {
+            console.error('Failed to delete item', error);
+          });
+        }
+      });
+    } catch (error) {
+      console.error(error);
     }
   }
+  
   
 }
