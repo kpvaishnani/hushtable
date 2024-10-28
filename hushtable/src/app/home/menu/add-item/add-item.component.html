@@ -18,22 +18,22 @@
       </div>
   <mat-form-field>
     <mat-label>Dish Name</mat-label>
-    <input type="text" matInput />
+    <input type="text" matInput  [(ngModel)]="newItem.name"  />
   </mat-form-field>
   <mat-form-field>
     <mat-label>Select Category</mat-label>
-    <mat-select [disabled]="disableSelect.value">
-      <mat-option value="option1">Appetizers</mat-option>
-      <mat-option value="option2">Entrees</mat-option>
-      <mat-option value="option3">Sides</mat-option>
-      <mat-option value="option4">Desserts</mat-option>
-      <mat-option value="option5">Beverages</mat-option>
-      <mat-option value="option6">Other</mat-option>
+    <mat-select [(ngModel)]="newItem.category">
+      <mat-option value="Appetizers">Appetizers</mat-option>
+      <mat-option value="Entrees">Entrees</mat-option>
+      <mat-option value="Sides">Sides</mat-option>
+      <mat-option value="Desserts">Desserts</mat-option>
+      <mat-option value="Beverages">Beverages</mat-option>
+      <mat-option value="Other">Other</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button (click)="this.dialogRef.close();">Cancel</button>
-  <button color="warn"  mat-button  cdkFocusInitial>Save</button>
+  <button color="warn"  mat-button  cdkFocusInitial (click)="addNewItem()">Save</button>
 </mat-dialog-actions>
 

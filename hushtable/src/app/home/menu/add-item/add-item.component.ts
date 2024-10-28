@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { MaterialModule } from '../../../material.module';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { CommonService } from '../../../services/common.service';
+import { SnackbarService } from '../../../services/snackbar.service';
 
 @Component({
   selector: 'app-add-item',
@@ -14,8 +15,15 @@ export class AddItemComponent {
   readonly dialogRef = inject(MatDialogRef<AddItemComponent>);
   selectedFile: File | null = null;
   photoPreview: string | ArrayBuffer | null = null;
-  disableSelect = new FormControl(false);
+  newItem = {image:this.photoPreview ,  name: '', category: '' };
+  collection = 'menu'
 
+  constructor(
+    private commonService : CommonService,
+    private snackbar : SnackbarService
+  ){}
+
+ 
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -31,6 +39,18 @@ export class AddItemComponent {
         }
       };
       reader.readAsDataURL(this.selectedFile);
+    }
+  }
+
+  async addNewItem(){
+    try{
+      console.log('Payload' , this.newItem)
+     const result =  await this.commonService.create(this.collection,this.newItem);
+     this.snackbar.showMessage('Menu Item Added Successfully', 'success')
+      this.dialogRef.close(result);
+    }
+    catch(error){
+      console.error(error)
     }
   }
 }
