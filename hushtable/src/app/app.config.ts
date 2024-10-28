@@ -6,6 +6,9 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { initializeApp } from 'firebase/app';
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDuDlQWsWlkGiEmh73NYsOAT4qB4F6qAY0",
@@ -16,6 +19,11 @@ const firebaseConfig = {
   appId: "1:356603333565:web:16b2303230b979be05e0d4",
   measurementId: "G-G51Z3J3HN5"
 };
+
+const app = initializeApp(firebaseConfig);
+
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: 
