@@ -37,11 +37,13 @@ export class GenerateCodeComponent {
 
   async submit() {
     try {
-      console.log(this.newCode)
-      if (this.data?.menuData) {
+     
+      if (this.data?.qrData) {
+          this.newCode.QR = `Table-${this.data.qrData.tableNumber}`
         await this.commonService.update(this.collection, this.data.qrData.id, this.newCode);
         this.snackbar.showMessage('Item updated successfully', 'success');
       } else {
+        this.newCode.QR = `Table-${this.newCode.tableNumber}`
         const result = await this.commonService.create(this.collection, this.newCode);
         this.snackbar.showMessage('New item added successfully', 'success');
       }
