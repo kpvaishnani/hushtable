@@ -1,16 +1,56 @@
-import { Component, inject } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { MaterialModule } from '../../../material.module';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { CommonService } from '../../../services/common.service';
+import { SnackbarService } from '../../../services/snackbar.service';
+import { QRCodeModule } from 'angularx-qrcode';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-generate-code',
   standalone: true,
-  imports: [MaterialModule],
+  imports: [MaterialModule, QRCodeModule, CommonModule,MaterialModule],
   templateUrl: './generate-code.component.html',
   styleUrl: './generate-code.component.scss'
 })
 export class GenerateCodeComponent {
 
-  readonly dialogRef = inject(MatDialogRef<GenerateCodeComponent>);
+
+
+  collection = 'qrCode';
+  newCode = { tableNumber: '', QR: '' }
+
+  constructor(
+    public dialogRef: MatDialogRef<GenerateCodeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private commonService: CommonService,
+    private snackbar: SnackbarService
+  ) { }
+
+  ngOnInit() {
+
+    if (this.data) {
+      this.newCode = { ...this.data.qrData };
+    }
+  }
+
+  async submit() {
+    try {
+      console.log(this.newCode)
+      if (this.data?.menuData) {
+        await this.commonService.update(this.collection, this.data.qrData.id, this.newCode);
+        this.snackbar.showMessage('Item updated successfully', 'success');
+      } else {
+        const result = await this.commonService.create(this.collection, this.newCode);
+        this.snackbar.showMessage('New item added successfully', 'success');
+      }
+      this.dialogRef.close(true);
+    } catch (error) {
+      console.error('Error saving item:', error);
+    }
+  }
+
+  
 
 }

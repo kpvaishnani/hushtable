@@ -1,13 +1,16 @@
 
-<h2 mat-dialog-title>Add New QR Code</h2>
+<h2 mat-dialog-title> QR Code</h2>
 <mat-dialog-content>
   <mat-form-field>
     <mat-label>Table Number</mat-label>
-    <input type="number" matInput />
+    <input type="number" matInput [(ngModel)]="newCode.tableNumber" />
   </mat-form-field>
+  <div *ngIf="data.qrData?.QR">
+    <qrcode [qrdata]="data.qrData.QR" [width]="256"></qrcode>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button (click)="this.dialogRef.close();">No Thanks</button>
-  <button color="warn"  mat-button  cdkFocusInitial>Generate</button>
+  <button color="warn"  mat-button  cdkFocusInitial (click)="submit()">Generate</button>
 </mat-dialog-actions>
 

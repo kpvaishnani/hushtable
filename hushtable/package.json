@@ -24,6 +24,7 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.7",
+    "angularx-qrcode": "^18.0.2",
     "express": "^4.18.2",
     "firebase": "^10.14.1",
     "firebase-tools": "^13.22.1",

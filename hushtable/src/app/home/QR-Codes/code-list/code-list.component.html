@@ -19,26 +19,46 @@
             <mat-table [dataSource]="dataSource" >
                 <ng-container matColumnDef="QId">
                   <mat-header-cell *matHeaderCellDef> QId </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{ element.QId }} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.id }} </mat-cell>
                 </ng-container>
             
                 <ng-container matColumnDef="QRCode">
                   <mat-header-cell *matHeaderCellDef> QRCode </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{ element.QRCode }} </mat-cell>
+                  <mat-cell *matCellDef="let element">
+                    <qrcode [qrdata]="element.QR || 'No-Data'" [width]="100"></qrcode>
+                    </mat-cell>
                 </ng-container>
             
                 <ng-container matColumnDef="TableNo">
                   <mat-header-cell *matHeaderCellDef> TableNo. </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{ element.TableNo }} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{ element.tableNumber }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="link">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell *matCellDef="let element">  <mat-icon matTooltip="link">link</mat-icon> </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="download">
+                  <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                  <mat-cell  *matCellDef="let element">
+                    <!-- <a [href]="element.QR" download="qrcode">
+                      <mat-icon style="margin-left: 20px" matTooltip="download"
+                      >download</mat-icon
+                    >
+                    </a>  -->
+                    <a [href]="element.QRUrl" download="{{element.QId}}-qrcode.pdf">
+                      <mat-icon style="margin-left: 20px" matTooltip="download">download</mat-icon>
+                    </a>
+                    
+                      </mat-cell>
                 </ng-container>
             
                 <ng-container matColumnDef="action">
                   <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
                   <mat-cell *matCellDef="let element">
-                    <mat-icon matTooltip="link">link</mat-icon>
-                    <mat-icon style="margin-left: 20px" matTooltip="download"
-                      >download</mat-icon
-                    >
+                    <mat-icon (click)="openDialog(element)">edit</mat-icon>
+                    <mat-icon color="warn" (click)="openDeleteDialog(element.id)">delete</mat-icon>
                   </mat-cell>
                 </ng-container>
             
