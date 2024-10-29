@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material.module';
+import { CommonService } from '../../services/common.service';
 
 @Component({
   selector: 'app-tables',
@@ -11,6 +12,25 @@ import { MaterialModule } from '../../material.module';
 export class TablesComponent {
 
   displayedColumns: string[] = ['Table No', ' Total Review', 'All Over Review', 'Weekly Review '];
-  dataSource = []
+  dataSource = [];
+  collection = 'qrCode'
+
+  constructor(
+    private commonService : CommonService,
+    
+  ){}
+
+  ngOnInit(){
+    this.getTables()
+  }
+
+  async getTables(){
+    try{
+    this.dataSource =   await this.commonService.getAll(this.collection)
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
 
 }
