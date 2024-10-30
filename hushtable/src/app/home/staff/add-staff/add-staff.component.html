@@ -18,15 +18,15 @@
       </div>
   <mat-form-field>
     <mat-label>Staff Name</mat-label>
-    <input type="text" matInput />
+    <input type="text" matInput [(ngModel)]="newStaff.name" />
   </mat-form-field>
   <mat-form-field>
     <mat-label>Staff Email</mat-label>
-    <input type="email" matInput />
+    <input type="email" matInput [(ngModel)]="newStaff.email" />
   </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button (click)="this.dialogRef.close();">Cancel</button>
-  <button color="warn"  mat-button  cdkFocusInitial>Save</button>
+  <button color="warn"  mat-button  cdkFocusInitial  (click)="submit()">Save</button>
 </mat-dialog-actions>
 
