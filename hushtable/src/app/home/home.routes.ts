@@ -20,47 +20,59 @@ export const routes : Routes = [
         children:[
             {
                 path:'',
-                component:DashboardComponent
+                component:DashboardComponent,
+                data: { title: 'Dashboard' }
             },
             {
                 path : 'qr-codes',
-                component:CodeListComponent
+                component:CodeListComponent,
+                data: { title: 'QR Code' }
             },
             {
                 path : 'staff',
-                component:StaffListComponent
+                component:StaffListComponent,
+                data : {title : 'Staff'}
             },
             {
                 path:'tables',
-                component:TablesComponent
+                component:TablesComponent,
+                data : { title : 'Tables'}
             },
             {
                 path:'menu',
-                component:MenuItemsListComponent
+                component:MenuItemsListComponent,
+                data : {title:'Menu'}
             },
             {
                 path:'customers',
-                component:CustomersComponent
+                component:CustomersComponent,
+                data:{title:'Customers'}
             },
             {
                 path:'notifications',
-                component:NotificationsComponent
+                component:NotificationsComponent,
+                data:{title:'Notifications'}
             },
             {
                 path:'account',
-              component:AccountComponent
+              component:AccountComponent,
+              data:{title:'My Account'}
               },
               {
                 path:'setting',
-                component:SettingComponent
+                component:SettingComponent,
+                data:{title:'My Account'}
+               
               },
               {
                 path:'subscription',
-                component:MySubscriptionComponent
+                component:MySubscriptionComponent,
+                data:{title:'My Account'}
               },
               {
                 path:'notification-setting',
-                component:NotificationSettingComponent
+                component:NotificationSettingComponent,
+                data:{title:'My Account'}
               }
         ]
     },

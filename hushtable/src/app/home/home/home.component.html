@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container">
-    <mat-drawer class="sidenav" mode="side" opened>
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
      <div>
           <img src="/logo.png" alt="" width="200">
       <div class="menu">
@@ -19,6 +19,21 @@
      </div>
     </mat-drawer>
     <mat-drawer-content>
+        <mat-toolbar>
+            <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+              <mat-icon >menu</mat-icon>
+            </button>
+            <span>{{ pageTitle }}</span> 
+
+            <span class="example-spacer"></span>
+            <button color="warn" mat-raised-button *ngIf="pageTitle === 'QR Code'">
+              <mat-icon>qr_code</mat-icon> Download all
+            </button>
+          </mat-toolbar>
+          
         <router-outlet/> 
     </mat-drawer-content>
   </mat-drawer-container>
+
+
+  
