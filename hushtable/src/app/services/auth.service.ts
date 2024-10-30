@@ -29,5 +29,15 @@ export class AuthService {
       console.error(error)
     }
   }
+
+  async logOut(){
+    try{
+      await this.auth.signOut();
+      this.router.navigate(['/']);
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
   
 }

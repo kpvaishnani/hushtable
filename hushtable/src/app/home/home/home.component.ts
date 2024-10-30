@@ -3,6 +3,7 @@ import { MaterialModule } from '../../material.module';
 import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter, map, mergeMap } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent {
 
   constructor(
     public router:Router,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private authService:AuthService
   ){}
  
   ngOnInit() {
@@ -47,6 +49,10 @@ export class HomeComponent {
       activeRoute = activeRoute.firstChild;
     }
     this.pageTitle = activeRoute.snapshot.data['title'] || 'home';
+  }
+
+  logout(){
+     this.authService.logOut();
   }
 }
 
