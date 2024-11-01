@@ -39,5 +39,15 @@ export class AuthService {
       console.error(error)
     }
   }
+
+  async resetPassword(email:string){
+    try{
+      await this.auth.sendPasswordResetEmail(email);
+      this.snackbarService.showMessage('Password reset email sent! Check your inbox.', 'success')
+    }
+    catch(error){
+      console.error(error)
+    }
+  }
   
 }

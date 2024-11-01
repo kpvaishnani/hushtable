@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../material.module';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -11,4 +12,10 @@ import { RouterModule } from '@angular/router';
 })
 export class ForgotPasswordComponent {
 
+email = ''
+  constructor(private authService:AuthService){}
+
+  sendResetLink(){
+   return this.authService.resetPassword(this.email)
+  }
 }
