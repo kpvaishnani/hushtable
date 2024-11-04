@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "hushtable-157a2"
-  }
+  },
+  "targets": {
+    "hushtable-157a2": {
+      "hosting": {
+        "hushtable-157a2": [
+          "hushtable"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

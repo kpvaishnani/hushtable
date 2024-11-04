@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "hushtable-157a2",
     "public": "dist/hushtable/browser",
     "ignore": [
       "firebase.json",
